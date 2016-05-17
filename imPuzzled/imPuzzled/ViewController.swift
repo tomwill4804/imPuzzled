@@ -8,18 +8,52 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UITableViewController,APIDataDelegate {
+    
+    var apidata: APIData!
+    var gameOption: gameOptions!
+    
+    struct gameOptions {
+        var width = 20
+        var height = 20
+        var words = 10
+        var minLength = 4
+        var maxLength = 8
+        var capabilities = [String]()
+        
+    }
+    
+    
+    //
+    //  get the capabilities of this game from the api
+    //
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        gameOption = gameOptions()
+        
+        let url = "polar-savannah-54119.herokuapp.com/capabilities"
+        apidata = APIData(request: url, delegate: self)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    //
+    //  back from the api so build the gameoptions struct
+    //
+    func gotAPIData(apidata: APIData) {
+        
+        if apidata.dictionary != nil {
+            var newDesc = [String]()
+            for item in (apidata.dictionary as? NSArray)! {
+                if let dict = item as? Dictionary<String, AnyObject> {
+                    if let name = dict["name"] {
+                        newDesc.append(name as! String)
+                    }
+                }
+            }
+            gameOption.capabilities = newDesc
+        }
     }
-
-
+    
 }
-
