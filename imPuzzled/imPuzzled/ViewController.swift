@@ -8,20 +8,23 @@
 
 import UIKit
 
+struct gameOptions {
+    
+    var width = 20
+    var height = 20
+    var words = 10
+    var minLength = 4
+    var maxLength = 8
+    var capabilities = [String]()
+    
+}
+
+
 class ViewController: UITableViewController,APIDataDelegate {
     
+    @IBOutlet var newGameButton: UIBarButtonItem!
     var apidata: APIData!
     var gameOption: gameOptions!
-    
-    struct gameOptions {
-        var width = 20
-        var height = 20
-        var words = 10
-        var minLength = 4
-        var maxLength = 8
-        var capabilities = [String]()
-        
-    }
     
     
     //
@@ -49,11 +52,25 @@ class ViewController: UITableViewController,APIDataDelegate {
                 if let dict = item as? Dictionary<String, AnyObject> {
                     if let name = dict["name"] {
                         newDesc.append(name as! String)
+                        newGameButton.enabled = true
                     }
                 }
             }
             gameOption.capabilities = newDesc
         }
     }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if  segue.identifier == "showNewGame" {
+            //let destinationNavigationController = segue.destinationViewController as! UINavigationController
+            let dvc = segue.destinationViewController as! NewGameViewController
+            dvc.gameOption = self.gameOption
+        }
+        
+    }
+
     
 }
