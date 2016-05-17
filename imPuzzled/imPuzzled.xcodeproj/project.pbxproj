@@ -9,25 +9,27 @@
 /* Begin PBXBuildFile section */
 		CCDFA7151CEB7654008D6258 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDFA7141CEB7654008D6258 /* AppDelegate.swift */; };
 		CCDFA7171CEB7654008D6258 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDFA7161CEB7654008D6258 /* ViewController.swift */; };
-		CCDFA71A1CEB7654008D6258 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCDFA7181CEB7654008D6258 /* Main.storyboard */; };
 		CCDFA71D1CEB7654008D6258 /* imPuzzled.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCDFA71B1CEB7654008D6258 /* imPuzzled.xcdatamodeld */; };
 		CCDFA71F1CEB7654008D6258 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCDFA71E1CEB7654008D6258 /* Assets.xcassets */; };
 		CCDFA7221CEB7654008D6258 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCDFA7201CEB7654008D6258 /* LaunchScreen.storyboard */; };
-		CCDFA72B1CEB7856008D6258 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCDFA7291CEB7856008D6258 /* Settings.storyboard */; };
-		E30C24D51CEB9FA800D7071B /* APIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C24D41CEB9FA800D7071B /* APIData.swift */; };
+		E37EC21D1CEBAE7B00C2E0EE /* APIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37EC21C1CEBAE7B00C2E0EE /* APIData.swift */; };
+		E37EC21F1CEBAEC800C2E0EE /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37EC21E1CEBAEC800C2E0EE /* NewGameViewController.swift */; };
+		E37EC2221CEBAFA800C2E0EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E37EC2201CEBAFA800C2E0EE /* Main.storyboard */; };
+		E37EC2241CEBB6D200C2E0EE /* FieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37EC2231CEBB6D200C2E0EE /* FieldCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CCDFA7111CEB7654008D6258 /* imPuzzled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imPuzzled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCDFA7141CEB7654008D6258 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCDFA7161CEB7654008D6258 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CCDFA7191CEB7654008D6258 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CCDFA71C1CEB7654008D6258 /* imPuzzled.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = imPuzzled.xcdatamodel; sourceTree = "<group>"; };
 		CCDFA71E1CEB7654008D6258 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCDFA7211CEB7654008D6258 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCDFA7231CEB7654008D6258 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CCDFA72A1CEB7856008D6258 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
-		E30C24D41CEB9FA800D7071B /* APIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIData.swift; sourceTree = "<group>"; };
+		E37EC21C1CEBAE7B00C2E0EE /* APIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIData.swift; sourceTree = "<group>"; };
+		E37EC21E1CEBAEC800C2E0EE /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
+		E37EC2211CEBAFA800C2E0EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E37EC2231CEBB6D200C2E0EE /* FieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +62,12 @@
 		CCDFA7131CEB7654008D6258 /* imPuzzled */ = {
 			isa = PBXGroup;
 			children = (
-				E30C24D41CEB9FA800D7071B /* APIData.swift */,
-				CCDFA7141CEB7654008D6258 /* AppDelegate.swift */,
+				E37EC21C1CEBAE7B00C2E0EE /* APIData.swift */,
+				E37EC2231CEBB6D200C2E0EE /* FieldCell.swift */,
+				E37EC21E1CEBAEC800C2E0EE /* NewGameViewController.swift */,
 				CCDFA7161CEB7654008D6258 /* ViewController.swift */,
-				CCDFA7181CEB7654008D6258 /* Main.storyboard */,
-				CCDFA7291CEB7856008D6258 /* Settings.storyboard */,
+				CCDFA7141CEB7654008D6258 /* AppDelegate.swift */,
+				E37EC2201CEBAFA800C2E0EE /* Main.storyboard */,
 				CCDFA71E1CEB7654008D6258 /* Assets.xcassets */,
 				CCDFA7201CEB7654008D6258 /* LaunchScreen.storyboard */,
 				CCDFA7231CEB7654008D6258 /* Info.plist */,
@@ -132,10 +135,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E37EC2221CEBAFA800C2E0EE /* Main.storyboard in Resources */,
 				CCDFA7221CEB7654008D6258 /* LaunchScreen.storyboard in Resources */,
 				CCDFA71F1CEB7654008D6258 /* Assets.xcassets in Resources */,
-				CCDFA71A1CEB7654008D6258 /* Main.storyboard in Resources */,
-				CCDFA72B1CEB7856008D6258 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,8 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E30C24D51CEB9FA800D7071B /* APIData.swift in Sources */,
+				E37EC2241CEBB6D200C2E0EE /* FieldCell.swift in Sources */,
+				E37EC21D1CEBAE7B00C2E0EE /* APIData.swift in Sources */,
 				CCDFA71D1CEB7654008D6258 /* imPuzzled.xcdatamodeld in Sources */,
+				E37EC21F1CEBAEC800C2E0EE /* NewGameViewController.swift in Sources */,
 				CCDFA7171CEB7654008D6258 /* ViewController.swift in Sources */,
 				CCDFA7151CEB7654008D6258 /* AppDelegate.swift in Sources */,
 			);
@@ -156,14 +160,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CCDFA7181CEB7654008D6258 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CCDFA7191CEB7654008D6258 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CCDFA7201CEB7654008D6258 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -172,12 +168,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		CCDFA7291CEB7856008D6258 /* Settings.storyboard */ = {
+		E37EC2201CEBAFA800C2E0EE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CCDFA72A1CEB7856008D6258 /* Base */,
+				E37EC2211CEBAFA800C2E0EE /* Base */,
 			);
-			name = Settings.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
