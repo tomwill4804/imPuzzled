@@ -69,6 +69,7 @@ class NewGameViewController: UITableViewController {
             cell.fieldType.text = Array(fieldDict.keys)[indexPath.row]
             let svalue = "\(Array(fieldDict.values)[indexPath.row])"
             cell.fieldValue.placeholder = svalue
+            cell.fieldValue.keyboardType = .DecimalPad
 
             return cell
             
@@ -104,7 +105,20 @@ class NewGameViewController: UITableViewController {
         }
     }
     
-            
+    //
+    //  set section title
+    //
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if section == 0 {
+            return "Game Settings"
+        }
+        else {
+            return "Choose atleast one option below"
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 

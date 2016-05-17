@@ -22,6 +22,7 @@ struct gameOptions {
 
 class ViewController: UITableViewController,APIDataDelegate {
     
+    @IBOutlet var newGameButton: UIBarButtonItem!
     var apidata: APIData!
     var gameOption: gameOptions!
     
@@ -51,6 +52,7 @@ class ViewController: UITableViewController,APIDataDelegate {
                 if let dict = item as? Dictionary<String, AnyObject> {
                     if let name = dict["name"] {
                         newDesc.append(name as! String)
+                        newGameButton.enabled = true
                     }
                 }
             }
