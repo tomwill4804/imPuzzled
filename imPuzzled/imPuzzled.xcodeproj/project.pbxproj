@@ -1,0 +1,313 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CCDFA7151CEB7654008D6258 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDFA7141CEB7654008D6258 /* AppDelegate.swift */; };
+		CCDFA7171CEB7654008D6258 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDFA7161CEB7654008D6258 /* ViewController.swift */; };
+		CCDFA71A1CEB7654008D6258 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCDFA7181CEB7654008D6258 /* Main.storyboard */; };
+		CCDFA71D1CEB7654008D6258 /* imPuzzled.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCDFA71B1CEB7654008D6258 /* imPuzzled.xcdatamodeld */; };
+		CCDFA71F1CEB7654008D6258 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCDFA71E1CEB7654008D6258 /* Assets.xcassets */; };
+		CCDFA7221CEB7654008D6258 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCDFA7201CEB7654008D6258 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CCDFA7111CEB7654008D6258 /* imPuzzled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imPuzzled.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCDFA7141CEB7654008D6258 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CCDFA7161CEB7654008D6258 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CCDFA7191CEB7654008D6258 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CCDFA71C1CEB7654008D6258 /* imPuzzled.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = imPuzzled.xcdatamodel; sourceTree = "<group>"; };
+		CCDFA71E1CEB7654008D6258 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CCDFA7211CEB7654008D6258 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CCDFA7231CEB7654008D6258 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CCDFA70E1CEB7654008D6258 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CCDFA7081CEB7654008D6258 = {
+			isa = PBXGroup;
+			children = (
+				CCDFA7131CEB7654008D6258 /* imPuzzled */,
+				CCDFA7121CEB7654008D6258 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CCDFA7121CEB7654008D6258 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CCDFA7111CEB7654008D6258 /* imPuzzled.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CCDFA7131CEB7654008D6258 /* imPuzzled */ = {
+			isa = PBXGroup;
+			children = (
+				CCDFA7141CEB7654008D6258 /* AppDelegate.swift */,
+				CCDFA7161CEB7654008D6258 /* ViewController.swift */,
+				CCDFA7181CEB7654008D6258 /* Main.storyboard */,
+				CCDFA71E1CEB7654008D6258 /* Assets.xcassets */,
+				CCDFA7201CEB7654008D6258 /* LaunchScreen.storyboard */,
+				CCDFA7231CEB7654008D6258 /* Info.plist */,
+				CCDFA71B1CEB7654008D6258 /* imPuzzled.xcdatamodeld */,
+			);
+			path = imPuzzled;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CCDFA7101CEB7654008D6258 /* imPuzzled */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCDFA7261CEB7654008D6258 /* Build configuration list for PBXNativeTarget "imPuzzled" */;
+			buildPhases = (
+				CCDFA70D1CEB7654008D6258 /* Sources */,
+				CCDFA70E1CEB7654008D6258 /* Frameworks */,
+				CCDFA70F1CEB7654008D6258 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = imPuzzled;
+			productName = imPuzzled;
+			productReference = CCDFA7111CEB7654008D6258 /* imPuzzled.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CCDFA7091CEB7654008D6258 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Steve Graff";
+				TargetAttributes = {
+					CCDFA7101CEB7654008D6258 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = U974956332;
+					};
+				};
+			};
+			buildConfigurationList = CCDFA70C1CEB7654008D6258 /* Build configuration list for PBXProject "imPuzzled" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CCDFA7081CEB7654008D6258;
+			productRefGroup = CCDFA7121CEB7654008D6258 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CCDFA7101CEB7654008D6258 /* imPuzzled */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CCDFA70F1CEB7654008D6258 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCDFA7221CEB7654008D6258 /* LaunchScreen.storyboard in Resources */,
+				CCDFA71F1CEB7654008D6258 /* Assets.xcassets in Resources */,
+				CCDFA71A1CEB7654008D6258 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CCDFA70D1CEB7654008D6258 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCDFA71D1CEB7654008D6258 /* imPuzzled.xcdatamodeld in Sources */,
+				CCDFA7171CEB7654008D6258 /* ViewController.swift in Sources */,
+				CCDFA7151CEB7654008D6258 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CCDFA7181CEB7654008D6258 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCDFA7191CEB7654008D6258 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CCDFA7201CEB7654008D6258 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCDFA7211CEB7654008D6258 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CCDFA7241CEB7654008D6258 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CCDFA7251CEB7654008D6258 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CCDFA7271CEB7654008D6258 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = imPuzzled/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Steve-Graff.imPuzzled";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CCDFA7281CEB7654008D6258 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = imPuzzled/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Steve-Graff.imPuzzled";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CCDFA70C1CEB7654008D6258 /* Build configuration list for PBXProject "imPuzzled" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCDFA7241CEB7654008D6258 /* Debug */,
+				CCDFA7251CEB7654008D6258 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCDFA7261CEB7654008D6258 /* Build configuration list for PBXNativeTarget "imPuzzled" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCDFA7271CEB7654008D6258 /* Debug */,
+				CCDFA7281CEB7654008D6258 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CCDFA71B1CEB7654008D6258 /* imPuzzled.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CCDFA71C1CEB7654008D6258 /* imPuzzled.xcdatamodel */,
+			);
+			currentVersion = CCDFA71C1CEB7654008D6258 /* imPuzzled.xcdatamodel */;
+			path = imPuzzled.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CCDFA7091CEB7654008D6258 /* Project object */;
+}
