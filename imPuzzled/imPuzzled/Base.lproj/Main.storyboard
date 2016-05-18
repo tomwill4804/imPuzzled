@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Pv-gD-1Oa" id="mhj-xg-DIX">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -33,7 +33,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="cGb-Fg-sh5">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="New Game" id="5v7-jZ-kF5">
+                        <barButtonItem key="rightBarButtonItem" title="New Game" id="5v7-jZ-kF5">
                             <connections>
                                 <segue destination="d1F-IY-LaY" kind="show" identifier="showNewGame" id="kpH-tv-hLz"/>
                             </connections>
@@ -140,6 +140,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+
                                 <connections>
                                     <outlet property="dataSource" destination="d1F-IY-LaY" id="liy-YU-EE9"/>
                                     <outlet property="delegate" destination="d1F-IY-LaY" id="Kdd-QM-DT9"/>
@@ -168,6 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6n-h9-qqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="arb-KC-4Ju" userLabel="Exit" sceneMemberID="exit"/>
+
             </objects>
             <point key="canvasLocation" x="1613" y="470"/>
         </scene>
