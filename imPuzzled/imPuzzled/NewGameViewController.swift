@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
-class NewGameViewController: UITableViewController {
+class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var gameOption: gameOptions!
-    var fieldDict: [String:Int]! = [:]
-
+    var game: Game?
+    var managedObjectContext: NSManagedObjectContext!
+    
+    private var fieldDict: [String:Int32]! = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +37,7 @@ class NewGameViewController: UITableViewController {
     //  the second in the list of capabilities
     //
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 
         return 2
     }
@@ -42,7 +46,7 @@ class NewGameViewController: UITableViewController {
     //  first section count is from field value dictionary
     //  second section count is from capabilities array
     //
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
             return fieldDict.count
@@ -58,7 +62,7 @@ class NewGameViewController: UITableViewController {
     //
     //  build right cell
     //
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         //
         //  first section uses custom cell that has a label and text field
@@ -69,7 +73,7 @@ class NewGameViewController: UITableViewController {
             cell.fieldType.text = Array(fieldDict.keys)[indexPath.row]
             let svalue = "\(Array(fieldDict.values)[indexPath.row])"
             cell.fieldValue.placeholder = svalue
-            cell.fieldValue.keyboardType = .DecimalPad
+            cell.fieldValue.keyboardType = .NumberPad
 
             return cell
             
@@ -92,7 +96,7 @@ class NewGameViewController: UITableViewController {
     //
     //  for second section flip the checkmark flag
     //
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if indexPath.section == 1 {
             if let cell = tableView.cellForRowAtIndexPath(indexPath) {
@@ -108,7 +112,7 @@ class NewGameViewController: UITableViewController {
     //
     //  set section title
     //
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         if section == 0 {
             return "Game Settings"
@@ -119,14 +123,12 @@ class NewGameViewController: UITableViewController {
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func playButtonPushed(sender: AnyObject) {
+        
+        let entity = NSEntityDescription.entityForName("Game", inManagedObjectContext: self.managedObjectContext)
+        self.game = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: nil) as? Game
+        game?.startGame(gameOption)
+        
     }
-    */
-
+    
 }
