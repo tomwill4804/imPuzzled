@@ -9,13 +9,14 @@
 import UIKit
 import CoreData
 
-class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     var gameOption: gameOptions!
     var game: Game?
     var managedObjectContext: NSManagedObjectContext!
     
     var fieldDict: [(name: String, value: Int32)] = []
+
     
     //
     //  build a list of field names / values to be used in first section
@@ -29,6 +30,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         fieldDict += [(name:"Words", value:gameOption.words)]
         fieldDict += [(name:"Min Length", value:gameOption.minLength)]
         fieldDict += [(name:"Max Length", value:gameOption.maxLength)]
+    
   
     }
 
@@ -78,6 +80,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             let svalue = "\(fieldDict[indexPath.row].value)"
             cell.fieldValue.placeholder = svalue
             cell.fieldValue.keyboardType = .NumberPad
+            cell.fieldValue.tag = indexPath.row
+            cell.fieldValue.delegate = self
 
             return cell
             
@@ -95,6 +99,13 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
      
+    }
+    
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        
+        
+        
+        return true
     }
     
     

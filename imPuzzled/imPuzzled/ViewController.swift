@@ -58,7 +58,9 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
                 if let dict = item as? Dictionary<String, AnyObject> {
                     if let name = dict["name"] as? String {
                         gameOption.capabilities += [(name: name, used: false)]
-                        newGameButton.enabled = true
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.newGameButton.enabled = true
+                        })
                     }
                 }
             }
