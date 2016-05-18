@@ -128,6 +128,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         let entity = NSEntityDescription.entityForName("Game", inManagedObjectContext: self.managedObjectContext)
         self.game = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: nil) as? Game
         game?.startGame(gameOption)
+        performSegueWithIdentifier("unwindNewGame", sender: self)
         
     }
     

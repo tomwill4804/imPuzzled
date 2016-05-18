@@ -11,10 +11,13 @@ import CoreData
 
 
 class Game: NSManagedObject {
-
-
+    
+    
+    //
+    //  start a new game
+    //
     func startGame(options: gameOptions) {
-       
+        
         width = options.width
         self.height = options.height
         self.words = options.words
@@ -25,5 +28,22 @@ class Game: NSManagedObject {
         self.lastUsed = curdate
         
     }
-
+    
+    
+    //
+    //  save this game
+    //
+    func doSave() {
+        
+        if self.managedObjectContext!.hasChanges {
+            do {
+                try self.managedObjectContext!.save()
+            } catch {
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
+        }
+    }
+    
 }

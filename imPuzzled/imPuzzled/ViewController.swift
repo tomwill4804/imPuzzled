@@ -146,13 +146,27 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
         //
         //  show new game controller
         //
-        if  segue.identifier == "showNewGame" {
+        if segue.identifier == "showNewGame" {
             //let destinationNavigationController = segue.destinationViewController as! UINavigationController
             let dvc = segue.destinationViewController as! NewGameViewController
             dvc.gameOption = self.gameOption
             dvc.managedObjectContext = self.managedObjectContext
         }
         
+    }
+    
+    //
+    //  unwind
+    //
+    @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
+       
+        if segue.identifier == "unwindNewGame" {
+            let dvc = segue.sourceViewController as! NewGameViewController
+            if dvc.game != nil {
+                self.managedObjectContext?.insertObject(dvc.game!)
+                dvc.game?.doSave()
+            }
+        }
     }
     
     // MARK: - Fetched results controller
