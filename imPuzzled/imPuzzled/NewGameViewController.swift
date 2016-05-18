@@ -85,7 +85,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("capabilityCell", forIndexPath: indexPath)
-            cell.textLabel?.text = gameOption.capabilities[indexPath.row]
+            cell.textLabel?.text = gameOption.capabilities[indexPath.row].name
+            
             return cell
         }
         
@@ -102,8 +103,10 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let cell = tableView.cellForRowAtIndexPath(indexPath) {
                 if cell.accessoryType == .Checkmark {
                     cell.accessoryType = .None
+                    gameOption.capabilities[indexPath.row].used = false
                 } else {
                     cell.accessoryType = .Checkmark
+                    gameOption.capabilities[indexPath.row].used = true
                 }
             }
         }

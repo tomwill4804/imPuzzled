@@ -16,7 +16,7 @@ struct gameOptions {
     var words: Int32 = 10
     var minLength: Int32 = 4
     var maxLength: Int32 = 8
-    var capabilities = [String]()
+    var capabilities: [(name: String, used: Bool)] = []
     
 }
 
@@ -54,16 +54,14 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
     func gotAPIData(apidata: APIData) {
         
         if apidata.dictionary != nil {
-            var newDesc = [String]()
             for item in (apidata.dictionary as? NSArray)! {
                 if let dict = item as? Dictionary<String, AnyObject> {
-                    if let name = dict["name"] {
-                        newDesc.append(name as! String)
+                    if let name = dict["name"] as? String {
+                        gameOption.capabilities += [(name: name, used: false)]
                         newGameButton.enabled = true
                     }
                 }
             }
-            gameOption.capabilities = newDesc
         }
     }
     
