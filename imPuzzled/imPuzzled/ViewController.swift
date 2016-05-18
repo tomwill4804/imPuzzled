@@ -29,6 +29,7 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
     
     var apidata: APIData!
     var gameOption: gameOptions!
+    var currentGame: Game!
     
     
     //
@@ -94,6 +95,16 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
     }
     
     //
+    //  restart game for selected row
+    //
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            self.currentGame = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Game
+        }
+    }
+    
+    //
     //  allow cell to be edited
     //
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -150,6 +161,12 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
             dvc.managedObjectContext = self.managedObjectContext
         }
         
+        else if segue.identifier == "showPlayGame" {
+            let dvc = segue.destinationViewController as! PlayGameViewController
+            dvc.game = self.currentGame
+        }
+
+        
     }
     
     //
@@ -160,10 +177,23 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
         if segue.identifier == "unwindNewGame" {
             let dvc = segue.sourceViewController as! NewGameViewController
             if dvc.game != nil {
-                self.managedObjectContext?.insertObject(dvc.game!)
-                dvc.game?.doSave()
+                let game = dvc.game
+                self.managedObjectContext?.insertObject(game!)
+                game?.doSave()
+                game?.startGame(gameReady)
             }
         }
+    }
+    
+    
+    //
+    //  the game is ready to play
+    //
+    func gameReady(game: Game){
+    
+        currentGame = game
+        performSegueWithIdentifier("showPlayGame", sender: self)
+    
     }
     
     // MARK: - Fetched results controller

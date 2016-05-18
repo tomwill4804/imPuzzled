@@ -10,13 +10,15 @@ import Foundation
 import CoreData
 
 
-class Game: NSManagedObject {
+class Game: NSManagedObject,APIDataDelegate {
     
+    private var gameReady: ((Game) -> Void)!
+    var apidata: APIData!
     
     //
-    //  start a new game
+    //  build a new game
     //
-    func startGame(options: gameOptions) {
+    func buildGame(options: gameOptions) {
         
         width = options.width
         self.height = options.height
@@ -28,6 +30,29 @@ class Game: NSManagedObject {
         self.lastUsed = curdate
         
     }
+    
+    
+    //
+    //  start a new game
+    //
+    func startGame(whenReady: ((Game) -> Void)) {
+        
+        self.gameReady = whenReady
+        let url = "polar-savannah-54119.herokuapp.com/capabilities"
+        apidata = APIData(request: url, delegate: self)
+        
+    }
+    
+    //
+    //  back from the api so build the game
+    //
+    func gotAPIData(apidata: APIData) {
+        
+        if apidata.dictionary != nil {
+            self.gameReady(self)
+        }
+    }
+
     
     
     //
