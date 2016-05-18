@@ -17,6 +17,10 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var fieldDict: [(name: String, value: Int32)] = []
     
+    //
+    //  build a list of field names / values to be used in first section
+    //  of the table
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
         
