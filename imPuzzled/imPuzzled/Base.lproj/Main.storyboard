@@ -29,7 +29,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="cGb-Fg-sh5">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="New Game" id="5v7-jZ-kF5">
+                        <barButtonItem key="rightBarButtonItem" title="New Game" id="5v7-jZ-kF5">
                             <connections>
                                 <segue destination="TqX-V6-tKi" kind="show" identifier="showNewGame" id="POd-ZD-kQJ"/>
                             </connections>

@@ -34,6 +34,9 @@ class ViewController: UITableViewController,APIDataDelegate {
         
         super.viewDidLoad()
         
+        // Set initial state of 'New Game' button to be disabled
+        newGameButton.enabled = false
+        
         gameOption = gameOptions()
         
         let url = "polar-savannah-54119.herokuapp.com/capabilities"
@@ -52,7 +55,11 @@ class ViewController: UITableViewController,APIDataDelegate {
                 if let dict = item as? Dictionary<String, AnyObject> {
                     if let name = dict["name"] {
                         newDesc.append(name as! String)
-                        newGameButton.enabled = true
+                        
+                        // Enable the 'New Game' button
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.newGameButton.enabled = true
+                        })
                     }
                 }
             }
