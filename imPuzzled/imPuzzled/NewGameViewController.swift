@@ -15,16 +15,16 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     var game: Game?
     var managedObjectContext: NSManagedObjectContext!
     
-    private var fieldDict: [String:Int32]! = [:]
+    var fieldDict: [(name: String, value: Int32)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fieldDict["Width"] = gameOption.width
-        fieldDict["Height"] = gameOption.height
-        fieldDict["Words"] = gameOption.words
-        fieldDict["Min Length"] = gameOption.minLength
-        fieldDict["Max Length"] = gameOption.maxLength
+        fieldDict += [(name:"Width", value:gameOption.width)]
+        fieldDict += [(name:"Height", value:gameOption.height)]
+        fieldDict += [(name:"Words", value:gameOption.words)]
+        fieldDict += [(name:"Min Length", value:gameOption.minLength)]
+        fieldDict += [(name:"Max Length", value:gameOption.maxLength)]
   
     }
 
@@ -70,8 +70,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         if indexPath.section == 0 {
            let cell = tableView.dequeueReusableCellWithIdentifier("fieldCell", forIndexPath: indexPath) as! FieldCell
             
-            cell.fieldType.text = Array(fieldDict.keys)[indexPath.row]
-            let svalue = "\(Array(fieldDict.values)[indexPath.row])"
+            cell.fieldType.text = fieldDict[indexPath.row].name
+            let svalue = "\(fieldDict[indexPath.row].value)"
             cell.fieldValue.placeholder = svalue
             cell.fieldValue.keyboardType = .NumberPad
 
@@ -100,6 +100,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if indexPath.section == 1 {
+            self.view.endEditing(true)
             if let cell = tableView.cellForRowAtIndexPath(indexPath) {
                 if cell.accessoryType == .Checkmark {
                     cell.accessoryType = .None
