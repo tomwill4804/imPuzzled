@@ -38,6 +38,8 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+
         
         gameOption = gameOptions()
         
