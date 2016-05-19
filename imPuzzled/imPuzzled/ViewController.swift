@@ -36,8 +36,6 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
-        
-        // Set initial state of 'New Game' button to be disabled
         newGameButton.enabled = false
         
         gameOption = gameOptions()
@@ -108,6 +106,7 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
         
         if let indexPath = self.tableView.indexPathForSelectedRow {
             self.currentGame = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Game
+            performSegueWithIdentifier("showPlayGame", sender: self)
         }
     }
     

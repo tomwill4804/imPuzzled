@@ -33,6 +33,12 @@ class Game: NSManagedObject,APIDataDelegate {
         self.started = curdate
         self.lastUsed = curdate
         
+        self.foundWords = []
+        self.unfoundWords = []
+        self.charactersAttr = []
+        self.characters = ["a","b","c","D"]
+        
+        
     }
     
     //
