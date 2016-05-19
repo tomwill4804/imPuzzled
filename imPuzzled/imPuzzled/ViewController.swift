@@ -41,6 +41,9 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
         
+        // Set initial state of 'New Game' button to be disabled
+        newGameButton.enabled = false
+        
         gameOption = gameOptions()
         
         let url = "polar-savannah-54119.herokuapp.com/capabilities"
@@ -58,6 +61,7 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
                 if let dict = item as? Dictionary<String, AnyObject> {
                     if let name = dict["name"] as? String {
                         gameOption.capabilities += [(name: name, used: false)]
+
                         dispatch_async(dispatch_get_main_queue(), {
                             self.newGameButton.enabled = true
                         })
