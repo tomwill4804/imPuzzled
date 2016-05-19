@@ -29,16 +29,6 @@ class Game: NSManagedObject,APIDataDelegate {
         self.width = findSetting("Min Length")
         self.width = findSetting("Max Length")
         
-        let curdate = NSDate().timeIntervalSince1970
-        self.started = curdate
-        self.lastUsed = curdate
-        
-        self.foundWords = []
-        self.unfoundWords = []
-        self.charactersAttr = []
-        self.characters = ["a","b","c","D"]
-        
-        
     }
     
     //
@@ -51,9 +41,7 @@ class Game: NSManagedObject,APIDataDelegate {
                 return setting.value
             }
         }
-        
         return 0
-        
     }
     
     
@@ -74,7 +62,31 @@ class Game: NSManagedObject,APIDataDelegate {
     func gotAPIData(apidata: APIData) {
         
         if apidata.dictionary != nil {
+            
+            let curdate = NSDate().timeIntervalSince1970
+            self.started = curdate
+            self.lastUsed = curdate
+            
+            self.foundWords = []
+            self.unfoundWords = []
+            self.charactersAttr = []
+            self.characters = []
+            
+            let char = "xxcat" +
+                "hixxx" +
+                "abcde" +
+                "xxgod" +
+                "cbyex"
+            
+            self.width = 5
+            self.height = 5
+            self.characters = Array(char.characters.map { String($0) })
+            self.charactersAttr = [String](count: char.characters.count, repeatedValue: " ")
+            self.unfoundWords = ["cat","hi","dog","bye"]
+            self.doSave()
+            
             self.gameReady(self)
+            
         }
     }
 
