@@ -13,6 +13,7 @@ import CoreData
 class Game: NSManagedObject,APIDataDelegate {
     
     private var gameReady: ((Game) -> Void)!
+    private var options: gameOptions!
     var apidata: APIData!
     
     //
@@ -20,14 +21,32 @@ class Game: NSManagedObject,APIDataDelegate {
     //
     func buildGame(options: gameOptions) {
         
-        width = options.width
-        self.height = options.height
-        self.words = options.words
-        self.minLength = options.minLength
-        self.maxLength = options.maxLength
+        self.options = options
+        
+        self.width = findSetting("Width")
+        self.width = findSetting("Height")
+        self.width = findSetting("Words")
+        self.width = findSetting("Min Length")
+        self.width = findSetting("Max Length")
+        
         let curdate = NSDate().timeIntervalSince1970
         self.started = curdate
         self.lastUsed = curdate
+        
+    }
+    
+    //
+    //  find setting value 
+    //
+    func findSetting(name: String) -> Int32 {
+        
+        for setting in options.settings {
+            if setting.name == name {
+                return setting.value
+            }
+        }
+        
+        return 0
         
     }
     

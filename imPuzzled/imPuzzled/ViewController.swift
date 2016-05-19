@@ -11,13 +11,9 @@ import CoreData
 
 struct gameOptions {
     
-    var width: Int32 = 20
-    var height: Int32 = 20
-    var words: Int32 = 10
-    var minLength: Int32 = 4
-    var maxLength: Int32 = 8
+    var settings: [(name: String, value: Int32)] = []
     var capabilities: [(name: String, used: Bool)] = []
-    
+
 }
 
 
@@ -42,6 +38,11 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
 
         
         gameOption = gameOptions()
+        gameOption.settings += [(name: "Width", value: 20)]
+        gameOption.settings += [(name: "Heigth", value: 20)]
+        gameOption.settings += [(name: "Words", value: 10)]
+        gameOption.settings += [(name: "Min Length", value: 4)]
+        gameOption.settings += [(name: "Max Length", value: 8)]
         
         let url = "polar-savannah-54119.herokuapp.com/capabilities"
         apidata = APIData(request: url, delegate: self)
