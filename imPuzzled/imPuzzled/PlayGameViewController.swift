@@ -242,8 +242,8 @@ class PlayGameViewController: UIViewController {
         // try and find word in the dictionary
         //
         for var word in words {
-            if let fword = word["word"] {
-                if fword as! String == pickedWord {
+            if let fword:String = word["word"] as? String {
+                if fword == pickedWord || fword == String(pickedWord.characters.reverse()) {
                     word["found"] = true
                     game.foundWordCount += 1
                     game.words = words
