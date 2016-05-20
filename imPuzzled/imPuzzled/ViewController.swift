@@ -169,8 +169,9 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
         }
         
         else if segue.identifier == "showPlayGame" {
-            let dvc = segue.destinationViewController as! PlayGameViewController
-            dvc.game = self.currentGame
+            let dvc = segue.destinationViewController as! UITabBarController
+            let playGameController = dvc.viewControllers![0] as! PlayGameViewController
+            playGameController.game = self.currentGame
         }
 
         

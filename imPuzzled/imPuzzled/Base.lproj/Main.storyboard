@@ -61,7 +61,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wlk-9q-WPG">
-                            <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="166" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                             <state key="normal" title="Credits">
@@ -73,15 +73,12 @@
                         </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="3Pv-gD-1Oa">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="122" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Pv-gD-1Oa" id="mhj-xg-DIX">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="MRa-UO-bVG" kind="show" identifier="showPlayGame" id="Cs3-wz-TFx"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -100,29 +97,68 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="newGameButton" destination="5v7-jZ-kF5" id="nLe-Cl-EAk"/>
+                        <segue destination="xay-QR-DwJ" kind="show" identifier="showPlayGame" id="mvK-Fj-2GD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EEk-eb-JSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="887" y="271"/>
         </scene>
-        <!--i'mPuzzled-->
-        <scene sceneID="nwM-V1-6ND">
+        <!--Words-->
+        <scene sceneID="Fnf-Yz-rT2">
             <objects>
-                <viewController title="i'mPuzzled" id="MRa-UO-bVG" customClass="PlayGameViewController" customModule="imPuzzled" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Words" id="IqG-VN-ZOk" customClass="UITableViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="D4q-3d-YeR"/>
-                        <viewControllerLayoutGuide type="bottom" id="jid-Cw-3HD"/>
+                        <viewControllerLayoutGuide type="top" id="3yQ-me-8tz"/>
+                        <viewControllerLayoutGuide type="bottom" id="9cW-RC-Mkd"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="S4O-oy-xHc">
+                    <view key="view" contentMode="scaleToFill" id="Jol-8X-Jo6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="2b2-V8-LDw"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="95c-u9-Oew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pPN-lC-q0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="995"/>
+            <point key="canvasLocation" x="1659" y="1871"/>
+        </scene>
+        <!--Puzzle-->
+        <scene sceneID="aGo-d5-khc">
+            <objects>
+                <viewController title="Puzzle" id="yig-Dk-NIj" customClass="PlayGameViewController" customModule="imPuzzled" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LC1-00-Eyc"/>
+                        <viewControllerLayoutGuide type="bottom" id="0EA-1e-Xdj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ijy-PB-oa4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="Wvo-4a-Tcr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8in-9y-YHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1659" y="1130"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="VNd-fF-whM">
+            <objects>
+                <tabBarController id="xay-QR-DwJ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Nnc-Do-pc9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="yig-Dk-NIj" kind="relationship" relationship="viewControllers" id="IoO-bd-y1o"/>
+                        <segue destination="IqG-VN-ZOk" kind="relationship" relationship="viewControllers" id="tZg-nb-MhC"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NG0-Bq-Hbx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887" y="1417"/>
         </scene>
         <!--Settings-->
         <scene sceneID="WJW-Vo-LNM">

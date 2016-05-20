@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayGameViewController: UIViewController {
+class PlayGameViewController: UITabBarController {
     
     var game: Game!
 
