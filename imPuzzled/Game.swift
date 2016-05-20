@@ -23,11 +23,11 @@ class Game: NSManagedObject,APIDataDelegate {
         
         self.options = options
         
-        self.width = findSetting("Width")
-        self.width = findSetting("Height")
-        self.width = findSetting("Words")
-        self.width = findSetting("Min Length")
-        self.width = findSetting("Max Length")
+        width = findSetting("Width")
+        width = findSetting("Height")
+        width = findSetting("Words")
+        width = findSetting("Min Length")
+        width = findSetting("Max Length")
         
     }
     
@@ -50,7 +50,7 @@ class Game: NSManagedObject,APIDataDelegate {
     //
     func startGame(whenReady: ((Game) -> Void)) {
         
-        self.gameReady = whenReady
+        gameReady = whenReady
         let url = "polar-savannah-54119.herokuapp.com/capabilities"
         apidata = APIData(request: url, delegate: self)
         
@@ -64,13 +64,11 @@ class Game: NSManagedObject,APIDataDelegate {
         if apidata.dictionary != nil {
             
             let curdate = NSDate().timeIntervalSince1970
-            self.started = curdate
-            self.lastUsed = curdate
+            started = curdate
+            lastUsed = curdate
             
-            self.foundWords = []
-            self.unfoundWords = []
-            self.charactersAttr = []
-            self.characters = []
+            charactersAttr = []
+            characters = []
             
             let char = "xxcat" +
                 "hixxx" +
@@ -78,14 +76,20 @@ class Game: NSManagedObject,APIDataDelegate {
                 "xxgod" +
                 "cbyex"
             
-            self.width = 5
-            self.height = 5
-            self.characters = Array(char.characters.map { String($0) })
-            self.charactersAttr = [String](count: char.characters.count, repeatedValue: " ")
-            self.unfoundWords = ["cat","hi","dog","bye"]
-            self.doSave()
+            width = 5
+            height = 5
+            characters = Array(char.characters.map { String($0) })
+            charactersAttr = [String](count: char.characters.count, repeatedValue: " ")
             
-            self.gameReady(self)
+            var words = [[String: AnyObject]]()
+            words += [["word":"cat", "found": false]]
+            words += [["word":"hi", "found": false]]
+            words += [["word":"dog", "found": false]]
+            words += [["word":"bye", "found": false]]
+            self.words = words
+            doSave()
+            
+            gameReady(self)
             
         }
     }
@@ -99,7 +103,7 @@ class Game: NSManagedObject,APIDataDelegate {
         
         if self.managedObjectContext!.hasChanges {
             do {
-                try self.managedObjectContext!.save()
+                try managedObjectContext!.save()
             } catch {
                 let nserror = error as NSError
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")

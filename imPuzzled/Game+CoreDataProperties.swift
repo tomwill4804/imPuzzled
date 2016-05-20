@@ -2,7 +2,7 @@
 //  Game+CoreDataProperties.swift
 //  imPuzzled
 //
-//  Created by Tom Williamson on 5/19/16.
+//  Created by Tom Williamson on 5/20/16.
 //  Copyright © 2016 Steve Graff. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,7 +15,7 @@ import CoreData
 extension Game {
 
     @NSManaged var characters: NSObject?
-    @NSManaged var foundWords: NSObject?
+    @NSManaged var words: NSObject?
     @NSManaged var height: Int32
     @NSManaged var lastUsed: NSTimeInterval
     @NSManaged var maxLength: Int32
@@ -23,8 +23,8 @@ extension Game {
     @NSManaged var name: String?
     @NSManaged var started: NSTimeInterval
     @NSManaged var width: Int32
-    @NSManaged var words: Int32
-    @NSManaged var unfoundWords: NSObject?
+    @NSManaged var wordCount: Int32
     @NSManaged var charactersAttr: NSObject?
+    @NSManaged var score: Int32
 
 }

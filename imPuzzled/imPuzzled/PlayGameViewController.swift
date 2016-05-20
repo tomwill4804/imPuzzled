@@ -15,12 +15,24 @@ class PlayGameViewController: UIViewController {
     
     var game: Game!
     
-    private var labelGrid: [UILabel] = []
+    private var lastLabel: UILabel? = nil
+    private var firstLabel: UILabel? = nil
+    private var secondLabel: UILabel? = nil
+    
+    private var labels: [UILabel] = []
+    
+    private let selectedColor = UIColor.redColor()
+    private let unselectedColor = UIColor.blackColor()
+    private let availColor = UIColor.greenColor()
+    private let wordColor = UIColor.blueColor()
 
+    //
+    //  build game screen
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.buildLabels()
+        buildLabels()
 
         
     }
@@ -35,47 +47,176 @@ class PlayGameViewController: UIViewController {
         
         for row:Int in 0...game.height-1 {
             for col:Int in 0...game.width-1 {
-                let label = UILabel(frame: CGRectMake(CGFloat(col * 20) + 40, CGFloat(row * 20) + 80,
+                let label = UILabel(frame: CGRectMake(CGFloat(col * 30) + 40, CGFloat(row * 30) + 80,
                     20, 20))
                 label.userInteractionEnabled = true
                 label.text = chars[index]
                 label.tag = index
-                self.view.addSubview(label)
-                labelGrid += [label]
+                view.addSubview(label)
+                labels += [label]
                 index += 1
-                print(label.frame)
             }
         }
+        self.resetGrid()
     }
     
+    //
+    //  detect a user pan on the screen
+    //
     @IBAction func handlePan(recognizer: UIPanGestureRecognizer) {
         
         let tapPoint = recognizer.locationInView(view)
         
+        //
+        //  start of pan
+        //
+        //  clear word and reset all labels
+        //
         if recognizer.state == .Began {
             
+            self.resetGrid()
         }
        
+        //
+        //  record character that is panned
+        //
         if recognizer.state == .Changed {
             if let label = view.hitTest(tapPoint, withEvent: nil) as? UILabel {
-                label.textColor = UIColor.redColor()
+                if lastLabel != label {
+                    lastLabel = label
+                    
+                    //
+                    //  look for first and second pan so we can see 
+                    //  the pan direction
+                    //
+                    if firstLabel == nil {firstLabel = label}
+                    else if secondLabel == nil {
+                        secondLabel = label
+                        self.calcDirection((firstLabel?.tag)!, sPoint: (secondLabel?.tag)!)
+                    }
+                    
+                    //
+                    //  change the selected label color if we dont have 
+                    //  two points yet or if the label is ok to select
+                    //  (only good labels have a green color)
+                    //
+                    if secondLabel == nil || label.textColor == availColor {
+                        label.textColor = selectedColor
+                    }
+                }
             }
         }
       
+        //
+        //  end of pan
+        //
+        //  process word
+        //
         if recognizer.state == .Ended {
-          
+          processWord()
+        }
+    }
+    
+    //
+    //  reset the grid
+    //
+    func resetGrid() {
+        
+        lastLabel = nil
+        firstLabel = nil
+        secondLabel = nil
+        
+        for label in labels {
+            label.textColor = unselectedColor
         }
     }
 
+    //
+    //  mark cells in right direction with different color
+    //
+    func calcDirection(fPoint: Int, sPoint: Int) {
+        
+        //
+        //  see if the two points are on the same row
+        //
+        //print("points \(fPoint)-\(sPoint)")
+        if rowCol(fPoint).row == rowCol(sPoint).row {
+            let row = rowCol(fPoint).row
+            //print("row \(row)")
+            for label in labels {
+                if rowCol(label.tag).row == row && label.textColor == unselectedColor {
+                    label.textColor = availColor
+                }
+            }
+        }
+        
+        
+        //
+        //  see if two points are on the same column
+        //
+        else if rowCol(fPoint).col == rowCol(sPoint).col {
+            let col = rowCol(fPoint).col
+            //print("col \(col)")
+            for label in labels {
+                if rowCol(label.tag).col == col && label.textColor == unselectedColor {
+                    label.textColor = availColor
+                }
+            }
+        }
 
-    /*
-    // MARK: - Navigation
+        //
+        //  see if the two points are on a diagonal
+        //
+        else {
+            
+            let diagDif = abs(fPoint - sPoint)
+            print(diagDif)
+            
+            //
+            //  find top of diag
+            //
+            var point = fPoint
+            repeat {
+                if point - diagDif < 0 {break}
+                if rowCol(point).col == 0 {break}
+                if rowCol(point).col == game.width - 1 {break}
+                point -= diagDif
+            } while true
+         
+            //
+            //  mark each label on the diag
+            //
+            while point < labels.count {
+                let label = labels[point]
+                if label.textColor == unselectedColor {
+                    label.textColor = availColor
+                }
+                point += diagDif
+                if rowCol(point).col == 0 {point = labels.count}
+            }
+        }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
     }
-    */
+    
+    func rowCol(point: Int) -> (row: Int, col: Int) {
+        
+        let width = Int(game.width)
+        let ret = (point / width, point % width)
+        
+        //print("\(point) +++ \(ret)")
+        
+        return ret
+        
+    }
+    
+    //
+    //  see if the selected labels make up a word we know about
+    //
+    func processWord() {
+        
+        
+        
+    }
 
 }
