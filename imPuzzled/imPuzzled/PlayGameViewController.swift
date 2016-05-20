@@ -279,6 +279,9 @@ class PlayGameViewController: UIViewController {
         
     }
     
+    //
+    //  create a shake gesture
+    //
     func shakeAnimation (label: UILabel) {
         
         let shake = CABasicAnimation(keyPath:"position")
