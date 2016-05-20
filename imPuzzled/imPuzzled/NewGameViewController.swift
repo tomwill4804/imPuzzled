@@ -138,6 +138,10 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    
+    //
+    //  create a new game and unwind the seque
+    //
     @IBAction func playButtonPushed(sender: AnyObject) {
         
         let entity = NSEntityDescription.entityForName("Game", inManagedObjectContext: self.managedObjectContext)
