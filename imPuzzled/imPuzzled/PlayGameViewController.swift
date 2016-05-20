@@ -264,6 +264,7 @@ class PlayGameViewController: UIViewController {
                     for label in labels {
                         if label.textColor == selectedColor {
                             attr[label.tag] = "X"
+                             shakeAnimation(label)
                         }
                     }
                     game.charactersAttr = attr
@@ -275,6 +276,18 @@ class PlayGameViewController: UIViewController {
                 }
             }
         }
+        
+    }
+    
+    func shakeAnimation (label: UILabel) {
+        
+        let shake = CABasicAnimation(keyPath:"position")
+        shake.duration = 0.1
+        shake.repeatCount = 5
+        shake.autoreverses = true
+        shake.fromValue = NSValue(CGPoint:CGPointMake(label.center.x - 5, label.center.y))
+        shake.toValue = NSValue(CGPoint:CGPointMake(label.center.x + 5, label.center.y))
+        label.layer.addAnimation(shake, forKey: "position")
         
     }
 
