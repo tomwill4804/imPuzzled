@@ -245,6 +245,8 @@ class PlayGameViewController: UIViewController {
             if let fword = word["word"] {
                 if fword as! String == pickedWord {
                     word["found"] = true
+                    game.foundWordCount += 1
+                    game.words = words
                     
                     //
                     //  mark each selected cell as used
@@ -257,7 +259,7 @@ class PlayGameViewController: UIViewController {
                     }
                     game.charactersAttr = attr
                     resetGrid()
-                    game.words = words
+                    
                     game.doSave()
                     
                     break

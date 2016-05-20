@@ -86,6 +86,8 @@ class Game: NSManagedObject,APIDataDelegate {
             words += [["word":"hi", "found": false]]
             words += [["word":"dog", "found": false]]
             words += [["word":"bye", "found": false]]
+            wordCount = 4
+            foundWordCount = 0
             self.words = words
             doSave()
             
