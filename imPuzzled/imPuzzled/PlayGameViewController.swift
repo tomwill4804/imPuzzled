@@ -45,13 +45,21 @@ class PlayGameViewController: UIViewController {
         let chars = game.characters as! [String]
         var index = 0;
         
+        let sidePadding = 40.0
+        let topPadding = 80.0
+        let swidth = Double(self.view.frame.size.width)
+        let gwidth = Double(game.width)
+        let size = (swidth - sidePadding * 2) / gwidth
+        
         for row:Int in 0...game.height-1 {
             for col:Int in 0...game.width-1 {
-                let label = UILabel(frame: CGRectMake(CGFloat(col * 30) + 40, CGFloat(row * 30) + 80,
+                let label = UILabel(frame: CGRectMake(CGFloat(Double(col) * size + sidePadding),
+                    CGFloat(Double(row) * size + topPadding),
                     20, 20))
                 label.userInteractionEnabled = true
                 label.text = chars[index]
                 label.tag = index
+                label.textAlignment = .Center
                 view.addSubview(label)
                 labels += [label]
                 index += 1
@@ -131,6 +139,7 @@ class PlayGameViewController: UIViewController {
         for label in labels {
             if attr[label.tag] == "X" {
                 label.textColor = wordColor
+                label.font = UIFont.boldSystemFontOfSize(16.0)
             }
             else {
                 label.textColor = unselectedColor
