@@ -24,7 +24,7 @@ class PlayGameViewController: UIViewController {
     private let selectedColor = UIColor.redColor()
     private let unselectedColor = UIColor.blackColor()
     private let availColor = UIColor.greenColor()
-    private let wordColor = UIColor.blueColor()
+    private let wordColor = UIColor.orangeColor()
 
     //
     //  build game screen
@@ -100,7 +100,8 @@ class PlayGameViewController: UIViewController {
                     //  two points yet or if the label is ok to select
                     //  (only good labels have a green color)
                     //
-                    if secondLabel == nil || label.textColor == availColor {
+                    if (secondLabel == nil || label.textColor == availColor)
+                    && label.textColor != wordColor {
                         label.textColor = selectedColor
                     }
                 }
@@ -126,8 +127,14 @@ class PlayGameViewController: UIViewController {
         firstLabel = nil
         secondLabel = nil
         
+        let attr:[String] = game.charactersAttr as! [String]
         for label in labels {
-            label.textColor = unselectedColor
+            if attr[label.tag] == "X" {
+                label.textColor = wordColor
+            }
+            else {
+                label.textColor = unselectedColor
+            }
         }
     }
 
@@ -178,11 +185,11 @@ class PlayGameViewController: UIViewController {
             var point = fPoint
             repeat {
                 if point - diagDif < 0 {break}
+                point -= diagDif
                 if rowCol(point).col == 0 {break}
                 if rowCol(point).col == game.width - 1 {break}
-                point -= diagDif
             } while true
-         
+            print(point)
             //
             //  mark each label on the diag
             //
@@ -215,7 +222,48 @@ class PlayGameViewController: UIViewController {
     //
     func processWord() {
         
+        //
+        //  build word from selected labels
+        //
+        var pickedWord = ""
+        for label in labels {
+            if label.textColor == selectedColor {
+                pickedWord += label.text!
+            }
+        }
         
+        //
+        //  see if word is in list of available words
+        //
+        
+        let words:[[String: AnyObject]] = game.words as! [[String: AnyObject]]
+        
+        //
+        // try and find word in the dictionary
+        //
+        for var word in words {
+            if let fword = word["word"] {
+                if fword as! String == pickedWord {
+                    word["found"] = true
+                    
+                    //
+                    //  mark each selected cell as used
+                    //
+                    var attr:[String] = game.charactersAttr as! [String]
+                    for label in labels {
+                        if label.textColor == selectedColor {
+                            attr[label.tag] = "X"
+                        }
+                    }
+                    game.charactersAttr = attr
+                    resetGrid()
+                    game.words = words
+                    game.doSave()
+                    
+                    break
+                }
+            }
+        }
         
     }
 

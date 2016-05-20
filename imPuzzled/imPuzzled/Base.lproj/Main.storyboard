@@ -47,6 +47,7 @@
                             <constraint firstItem="VZb-03-Lnl" firstAttribute="centerX" secondItem="zB7-9w-tpc" secondAttribute="centerX" id="o5S-WS-Czh"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTX-sg-R4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
