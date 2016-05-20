@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC996FF11CEF7FCC00D6A265 /* WordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC996FF01CEF7FCC00D6A265 /* WordsTableViewController.swift */; };
 		CCDFA7151CEB7654008D6258 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDFA7141CEB7654008D6258 /* AppDelegate.swift */; };
 		CCDFA7171CEB7654008D6258 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDFA7161CEB7654008D6258 /* ViewController.swift */; };
 		CCDFA71D1CEB7654008D6258 /* imPuzzled.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCDFA71B1CEB7654008D6258 /* imPuzzled.xcdatamodeld */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC996FF01CEF7FCC00D6A265 /* WordsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsTableViewController.swift; sourceTree = "<group>"; };
 		CCDFA7111CEB7654008D6258 /* imPuzzled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imPuzzled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCDFA7141CEB7654008D6258 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCDFA7161CEB7654008D6258 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 		CCDFA7081CEB7654008D6258 = {
 			isa = PBXGroup;
 			children = (
+				CC996FF01CEF7FCC00D6A265 /* WordsTableViewController.swift */,
 				E37EC27E1CEBE7F500C2E0EE /* Game+CoreDataProperties.swift */,
 				E37EC27F1CEBE7F500C2E0EE /* Game.swift */,
 				CCDFA7131CEB7654008D6258 /* imPuzzled */,
@@ -160,6 +163,7 @@
 				E37EC2801CEBE7F500C2E0EE /* Game+CoreDataProperties.swift in Sources */,
 				E37EC2241CEBB6D200C2E0EE /* FieldCell.swift in Sources */,
 				E37EC2A61CEC2ABB00C2E0EE /* PlayGameViewController.swift in Sources */,
+				CC996FF11CEF7FCC00D6A265 /* WordsTableViewController.swift in Sources */,
 				E37EC21D1CEBAE7B00C2E0EE /* APIData.swift in Sources */,
 				CCDFA71D1CEB7654008D6258 /* imPuzzled.xcdatamodeld in Sources */,
 				E37EC21F1CEBAEC800C2E0EE /* NewGameViewController.swift in Sources */,
