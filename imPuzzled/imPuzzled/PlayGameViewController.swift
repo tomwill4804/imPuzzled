@@ -34,7 +34,7 @@ class PlayGameViewController: UITabBarController {
         
         buildLabels()
 
-        
+        self.view.backgroundColor = UIColor.whiteColor()
     }
 
     //
