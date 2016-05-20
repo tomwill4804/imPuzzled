@@ -37,6 +37,7 @@ class PlayGameViewController: UIViewController {
             for col:Int in 0...game.width-1 {
                 let label = UILabel(frame: CGRectMake(CGFloat(col * 20) + 40, CGFloat(row * 20) + 80,
                     20, 20))
+                label.userInteractionEnabled = true
                 label.text = chars[index]
                 label.tag = index
                 self.view.addSubview(label)
@@ -56,7 +57,6 @@ class PlayGameViewController: UIViewController {
         }
        
         if recognizer.state == .Changed {
-            print(view.hitTest(tapPoint, withEvent: nil))
             if let label = view.hitTest(tapPoint, withEvent: nil) as? UILabel {
                 label.textColor = UIColor.redColor()
             }
