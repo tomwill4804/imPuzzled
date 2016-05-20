@@ -116,9 +116,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Sfq-tQ-qKU" appends="YES" id="Ihe-Sv-g8R"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="recognizer" destination="Sfq-tQ-qKU" id="I8b-Xx-0SM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="95c-u9-Oew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Sfq-tQ-qKU">
+                    <connections>
+                        <action selector="handlePan:" destination="MRa-UO-bVG" id="EoK-ST-fSp"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="983" y="995"/>
         </scene>

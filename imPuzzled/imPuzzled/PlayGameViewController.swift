@@ -11,19 +11,11 @@ import UIKit
 class PlayGameViewController: UIViewController {
     
     
+    @IBOutlet var recognizer: UIPanGestureRecognizer!
     
     var game: Game!
     
-    struct gridCell {
-        
-        var character: String
-        var index: Int
-        var label: UILabel
-        
-    }
-
-    
-    private var labelGrid: [[gridCell]]!
+    private var labelGrid: [UILabel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,21 +31,42 @@ class PlayGameViewController: UIViewController {
     func buildLabels() {
         
         let chars = game.characters as! [String]
-        let index = 0;
+        var index = 0;
         
-        for col:Int in 0...game.width-1 {
-            var rowArray: [gridCell] = []
-            for row:Int in 0...game.height-1 {
-                let label = UILabel(frame: CGRectMake(CGFloat(20*col) + 40, CGFloat(row * 20) + 40,
+        for row:Int in 0...game.height-1 {
+            for col:Int in 0...game.width-1 {
+                let label = UILabel(frame: CGRectMake(CGFloat(col * 20) + 40, CGFloat(row * 20) + 80,
                     20, 20))
-                let gc = gridCell(character: chars[index], index: index, label: label)
-                rowArray += [gc]
+                label.text = chars[index]
+                label.tag = index
                 self.view.addSubview(label)
+                labelGrid += [label]
+                index += 1
+                print(label.frame)
             }
-            labelGrid += rowArray
         }
-        
     }
+    
+    @IBAction func handlePan(recognizer: UIPanGestureRecognizer) {
+        
+        let tapPoint = recognizer.locationInView(view)
+        
+        if recognizer.state == .Began {
+            
+        }
+       
+        if recognizer.state == .Changed {
+            print(view.hitTest(tapPoint, withEvent: nil))
+            if let label = view.hitTest(tapPoint, withEvent: nil) as? UILabel {
+                label.textColor = UIColor.redColor()
+            }
+        }
+      
+        if recognizer.state == .Ended {
+          
+        }
+    }
+
 
     /*
     // MARK: - Navigation
