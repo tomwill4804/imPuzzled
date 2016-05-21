@@ -189,7 +189,6 @@ class PlayGameViewController: UIViewController {
         else {
             
             let diagDif = abs(fPoint - sPoint)
-            print(diagDif)
             
             //
             //  find top of diag
@@ -201,7 +200,7 @@ class PlayGameViewController: UIViewController {
                 if rowCol(point).col == 0 {break}
                 if rowCol(point).col == game.width - 1 {break}
             } while true
-            print(point)
+          
             //
             //  mark each label on the diag
             //
@@ -248,7 +247,7 @@ class PlayGameViewController: UIViewController {
         //  see if word is in list of available words
         //
         
-        let words:[[String: AnyObject]] = game.words as! [[String: AnyObject]]
+        var words:[[String: AnyObject]] = game.words as! [[String: AnyObject]]
         
         //
         // try and find word in the dictionary
@@ -256,11 +255,14 @@ class PlayGameViewController: UIViewController {
         for var word in words {
             if let fword:String = word["word"] as? String {
                 if fword == pickedWord || fword == String(pickedWord.characters.reverse()) {
-                    word["found"] = true
-                    print(word)
-                    print(words)
+                    
+                    for index in 0...words.count-1 {
+                        if words[index]["word"] as? String == fword {
+                            words[index]["found"] = true as Bool
+                        }
+                    }
+        
                     game.foundWordCount += 1
-                    game.words = words
                     
                     //
                     //  mark each selected cell as used
@@ -269,13 +271,12 @@ class PlayGameViewController: UIViewController {
                     for label in labels {
                         if label.textColor == selectedColor {
                             attr[label.tag] = "X"
-                             shakeAnimation(label)
+                            shakeAnimation(label)
                         }
                     }
                     game.charactersAttr = attr
                     game.words = words
-              //      print(words)
-               //     print(game.words)
+
                     resetGrid()
                     
                     game.doSave()
