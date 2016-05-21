@@ -204,13 +204,18 @@ class PlayGameViewController: UIViewController {
             //
             //  mark each label on the diag
             //
+            var marks = 0
             while point < labels.count {
                 let label = labels[point]
                 if label.textColor == unselectedColor {
                     label.textColor = availColor
+                    marks += 1
+                }
+                if marks > 1 {
+                    if rowCol(point).col == 0 {break}
+                    if rowCol(point).col == game.width-1 {break}
                 }
                 point += diagDif
-                if rowCol(point).col == 0 {point = labels.count}
             }
         }
 
