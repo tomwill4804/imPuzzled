@@ -13,6 +13,10 @@ class WordsTableViewController: UITableViewController {
     var game: Game!
     var words:[[String: AnyObject]]!
     
+    
+    //
+    //  save current game pointer
+    //
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -22,6 +26,9 @@ class WordsTableViewController: UITableViewController {
 
     }
     
+    //
+    //  load words as array of dictionary
+    //
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
@@ -34,18 +41,27 @@ class WordsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    //
+    //  one secion
+    //
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         return 1
         
     }
 
+    //
+    //  one row for each word
+    //
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
        return words.count
         
     }
 
+    //
+    //  build cell for word and checkmark if used
+    //
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
