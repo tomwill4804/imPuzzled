@@ -105,10 +105,10 @@
             </objects>
             <point key="canvasLocation" x="887" y="271"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Play Game Tab View Controller-->
         <scene sceneID="hlI-5P-Wal">
             <objects>
-                <tabBarController id="LnP-IT-RWG" sceneMemberID="viewController">
+                <tabBarController id="LnP-IT-RWG" customClass="PlayGameTabViewController" customModule="imPuzzled" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="PWV-SB-dSp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

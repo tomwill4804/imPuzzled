@@ -32,6 +32,9 @@ class PlayGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tbvc = self.tabBarController as! PlayGameTabViewController
+        game = tbvc.game
+        
         buildLabels()
 
         
