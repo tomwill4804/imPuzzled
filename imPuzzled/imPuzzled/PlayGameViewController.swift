@@ -257,6 +257,8 @@ class PlayGameViewController: UIViewController {
             if let fword:String = word["word"] as? String {
                 if fword == pickedWord || fword == String(pickedWord.characters.reverse()) {
                     word["found"] = true
+                    print(word)
+                    print(words)
                     game.foundWordCount += 1
                     game.words = words
                     
@@ -271,6 +273,9 @@ class PlayGameViewController: UIViewController {
                         }
                     }
                     game.charactersAttr = attr
+                    game.words = words
+              //      print(words)
+               //     print(game.words)
                     resetGrid()
                     
                     game.doSave()
