@@ -302,5 +302,16 @@ class PlayGameViewController: UIViewController {
         label.layer.addAnimation(shake, forKey: "position")
         
     }
+    
+    //
+    //  user rotated so we need to redraw the screen
+    //
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+     
+        view.subviews.forEach { $0.removeFromSuperview() }
+        
+        buildLabels()
+        
+    }
 
 }
