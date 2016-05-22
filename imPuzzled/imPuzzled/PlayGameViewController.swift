@@ -58,11 +58,12 @@ class PlayGameViewController: UIViewController {
             for col:Int in 0...game.width-1 {
                 let label = UILabel(frame: CGRectMake(CGFloat(Double(col) * size + sidePadding),
                     CGFloat(Double(row) * size + topPadding),
-                    20, 20))
+                    30, 30))
                 label.userInteractionEnabled = true
                 label.text = chars[index]
                 label.tag = index
                 label.textAlignment = .Center
+                label.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.1)
                 view.addSubview(label)
                 labels += [label]
                 index += 1
