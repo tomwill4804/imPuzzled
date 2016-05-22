@@ -309,6 +309,7 @@ class PlayGameViewController: UIViewController {
         
     }
     
+    
     //
     //  user rotated so we need to redraw the screen
     //
