@@ -12,7 +12,7 @@ import CoreData
 struct gameOptions {
     
     var settings: [(name: String, value: Int32)] = []
-    var capabilities: [(name: String, used: Bool)] = []
+    var capabilities: [[String : AnyObject]]!
 
 }
 
@@ -47,6 +47,7 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
         
         let url = "polar-savannah-54119.herokuapp.com/capabilities"
         apidata = APIData(request: url, delegate: self)
+        
     }
     
     
@@ -56,13 +57,10 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
     func gotAPIData(apidata: APIData) {
         
         if apidata.dictionary != nil {
-            for item in (apidata.dictionary as? NSArray)! {
-                if let dict = item as? Dictionary<String, AnyObject> {
-                    if let name = dict["name"] as? String {
-                        gameOption.capabilities += [(name: name, used: false)]
-                        self.newGameButton.enabled = true
-                    }
-                }
+            gameOption.capabilities = apidata.dictionary as! [[String : AnyObject]]
+            for index in 0...gameOption.capabilities.count-1 {
+                gameOption.capabilities[index]["used"] = false
+                newGameButton.enabled = true
             }
         }
     }
