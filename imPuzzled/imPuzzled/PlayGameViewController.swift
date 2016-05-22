@@ -24,7 +24,7 @@ class PlayGameViewController: UIViewController {
     private let selectedColor = UIColor.redColor()
     private let unselectedColor = UIColor.blackColor()
     private let availColor = UIColor.greenColor()
-    private let wordColor = UIColor.orangeColor()
+    private let wordColor = UIColor.blueColor()
 
     //
     //  build game screen
