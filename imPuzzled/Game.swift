@@ -99,9 +99,9 @@ class Game: NSManagedObject,APIDataDelegate {
             characters = []
             
             let char = "xxcat" +
-                "hixxx" +
-                "abcde" +
-                "xxgod" +
+                "hixmx" +
+                "abode" +
+                "ttgod" +
                 "cbyex"
             
             width = 5
@@ -114,7 +114,9 @@ class Game: NSManagedObject,APIDataDelegate {
             words += [["word":"hi", "found": false]]
             words += [["word":"dog", "found": false]]
             words += [["word":"bye", "found": false]]
-            wordCount = 4
+            words += [["word":"hat", "found": false]]
+            words += [["word":"tom", "found": false]]
+            wordCount = 6
             foundWordCount = 0
             self.words = words
             doSave()

@@ -11,7 +11,7 @@ import UIKit
 class WordsTableViewController: UITableViewController {
     
     var game: Game!
-    var words:[[String: AnyObject]]!
+    private var words:[[String: AnyObject]]!
     
     
     //
