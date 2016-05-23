@@ -159,10 +159,8 @@ class PlayGameViewController: UIViewController {
         //
         //  see if the two points are on the same row
         //
-        //print("points \(fPoint)-\(sPoint)")
         if rowCol(fPoint).row == rowCol(sPoint).row {
             let row = rowCol(fPoint).row
-            //print("row \(row)")
             for label in labels {
                 if rowCol(label.tag).row == row && label.textColor == unselectedColor {
                     label.textColor = availColor
@@ -176,7 +174,6 @@ class PlayGameViewController: UIViewController {
         //
         else if rowCol(fPoint).col == rowCol(sPoint).col {
             let col = rowCol(fPoint).col
-            //print("col \(col)")
             for label in labels {
                 if rowCol(label.tag).col == col && label.textColor == unselectedColor {
                     label.textColor = availColor
@@ -227,8 +224,6 @@ class PlayGameViewController: UIViewController {
         
         let width = Int(game.width)
         let ret = (point / width, point % width)
-        
-        //print("\(point) +++ \(ret)")
         
         return ret
         
