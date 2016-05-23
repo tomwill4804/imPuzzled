@@ -70,7 +70,7 @@ class Game: NSManagedObject,APIDataDelegate {
         }
         dict["capabilities"] = cap
         
-        var jsonString: NSString = ""
+        var jsonString = ""
         do {
             let data = try NSJSONSerialization.dataWithJSONObject(dict, options:[])
             jsonString = NSString(data: data, encoding: NSUTF8StringEncoding)! as String
