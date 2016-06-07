@@ -14,6 +14,7 @@ class Game: NSManagedObject,APIDataDelegate {
     
     private var gameReady: ((Game) -> Void)!
     private var options: gameOptions!
+    var error: String? = nil
     
     var apidata: APIData!
     
@@ -97,6 +98,11 @@ class Game: NSManagedObject,APIDataDelegate {
     //  back from the api so build the game
     //
     func gotAPIData(apidata: APIData) {
+        
+        if apidata.errorText != nil {
+            error = apidata.errorText
+            gameReady(self)
+        }
         
         if apidata.dictionary != nil {
             

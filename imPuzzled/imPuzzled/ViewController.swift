@@ -191,9 +191,20 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
     //  the game is ready to play
     //
     func gameReady(game: Game){
-    
-        currentGame = game
-        performSegueWithIdentifier("showPlayGame", sender: self)
+        
+        //
+        //  make sure we dont have an error
+        //
+        if game.error != nil {
+            let alertController = UIAlertController(title: "API Error", message: game.error, preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+            presentViewController(alertController, animated: true, completion: nil)
+            game.managedObjectContext!.deleteObject(game)
+        }
+        else {
+            currentGame = game
+            performSegueWithIdentifier("showPlayGame", sender: self)
+        }
     
     }
     

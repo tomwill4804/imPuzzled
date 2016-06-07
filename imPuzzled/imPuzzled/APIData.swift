@@ -57,7 +57,11 @@ class APIData: NSObject,NSURLSessionDelegate {
             let statusCode = httpResponse.statusCode
             
             if (statusCode == 200) {
-                self.gotData(data!)
+                self.gotData(data)
+            }
+            else {
+                self.errorText = "API error \(statusCode)"
+                self.gotData(nil)
             }
         }
     
@@ -69,21 +73,21 @@ class APIData: NSObject,NSURLSessionDelegate {
     //
     //  we have data back
     //
-    func gotData(data: NSData) {
+    func gotData(data: NSData?) {
         
-        if data.length > 0 {
+        if data != nil && data!.length > 0 {
             rawData = data
             do {
-                self.dictionary = try NSJSONSerialization.JSONObjectWithData(data, options:.AllowFragments)
+                self.dictionary = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments)
             }
             catch {
             }
-            
-            if delegate != nil {
-                delegate!.gotAPIData(self)
-            }
-            
         }
+        
+        if delegate != nil {
+            delegate!.gotAPIData(self)
+        }
+        
     }
     
 }
