@@ -99,11 +99,18 @@ class Game: NSManagedObject,APIDataDelegate {
     //
     func gotAPIData(apidata: APIData) {
         
+        //
+        //  check for error
+        //
         if apidata.errorText != nil {
             error = apidata.errorText
             gameReady(self)
         }
         
+        
+        //
+        //  build letters array
+        //
         if apidata.dictionary != nil {
             
             let curdate = NSDate().timeIntervalSince1970
@@ -121,6 +128,9 @@ class Game: NSManagedObject,APIDataDelegate {
             characters = char as [String]
             charactersAttr = [String](count: char.count, repeatedValue: " ")
             
+            //
+            //  build words array
+            //
             let wordArray = apidata.dictionary!["words"] as? [[String:AnyObject]]
             var words = [[String: AnyObject]]()
             for word in wordArray! {

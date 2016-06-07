@@ -35,7 +35,10 @@ class PlayGameViewController: UIViewController {
         let tbvc = self.tabBarController as! PlayGameTabViewController
         game = tbvc.game
         
-        buildLabels()
+        print(game.wordCount)
+        if game.wordCount > 0 && game.characters != nil {
+            buildLabels()
+        }
 
         
     }
