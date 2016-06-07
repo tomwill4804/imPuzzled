@@ -254,7 +254,8 @@ class PlayGameViewController: UIViewController {
         //
         for var word in words {
             if let fword:String = word["word"] as? String {
-                if fword == pickedWord || fword == String(pickedWord.characters.reverse()) {
+                let uword = fword.uppercaseString
+                if uword == pickedWord || uword == String(pickedWord.characters.reverse()) {
                     
                     for index in 0...words.count-1 {
                         if words[index]["word"] as? String == fword {

@@ -40,13 +40,13 @@ class ViewController: UITableViewController,NSFetchedResultsControllerDelegate,A
         
         gameOption = gameOptions()
         gameOption.settings += [(name: "Width", value: 20)]
-        gameOption.settings += [(name: "Heigth", value: 20)]
+        gameOption.settings += [(name: "Height", value: 20)]
         gameOption.settings += [(name: "Words", value: 10)]
         gameOption.settings += [(name: "Min Length", value: 4)]
         gameOption.settings += [(name: "Max Length", value: 8)]
         
         let url = "polar-savannah-54119.herokuapp.com/capabilities"
-        apidata = APIData(request: url, delegate: self)
+        apidata = APIData(request: url, delegate: self, json: nil)
         
     }
     

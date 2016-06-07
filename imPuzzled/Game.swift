@@ -53,11 +53,14 @@ class Game: NSManagedObject,APIDataDelegate {
         
         gameReady = whenReady
         
+        //
+        //  build dictionary of values to send to game builder
+        //
         var dict : [String:AnyObject] = [:]
         
         dict["width"] = Int(width)
         dict["height"] = Int(height)
-        dict["words"] = Int(wordCount)
+        dict["numberOfWords"] = Int(wordCount)
         dict["minLength"] = Int(minLength)
         dict["maxLength"] = Int(maxLength)
         
@@ -70,18 +73,24 @@ class Game: NSManagedObject,APIDataDelegate {
         }
         dict["capabilities"] = cap
         
-        var jsonString = ""
+        //
+        //  convert dictionary to json data 
+        //
+        var json = NSData.init()
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(dict, options:[])
-            jsonString = NSString(data: data, encoding: NSUTF8StringEncoding)! as String
+            json = try NSJSONSerialization.dataWithJSONObject(dict, options:[])
+            let jsonString = NSString(data: json, encoding: NSUTF8StringEncoding)! as String
+            print(jsonString)
         }
         catch {
         }
+        
+        //
+        //  issue api request
+        //
+        let url = "polar-savannah-54119.herokuapp.com/puzzle"
+        apidata = APIData(request: url, delegate: self, json: json)
 
-        
-        let url = "polar-savannah-54119.herokuapp.com/capabilities" // + (jsonString as String)
-        apidata = APIData(request: url, delegate: self)
-        
     }
     
     //
@@ -96,29 +105,29 @@ class Game: NSManagedObject,APIDataDelegate {
             lastUsed = curdate
             
             charactersAttr = []
-            characters = []
+            var char: [String] = []
             
-            let char = "xxcat" +
-                "hixmx" +
-                "abode" +
-                "ttgod" +
-                "cbyex"
+            let charArray = apidata.dictionary!["puzzle"] as? [[String]]
+            for row in charArray! {
+                char = char + row
+            }
             
-            width = 5
-            height = 5
-            characters = Array(char.characters.map { String($0) })
-            charactersAttr = [String](count: char.characters.count, repeatedValue: " ")
+            characters = char as [String]
+            charactersAttr = [String](count: char.count, repeatedValue: " ")
             
+            let wordArray = apidata.dictionary!["words"] as? [[String:AnyObject]]
             var words = [[String: AnyObject]]()
-            words += [["word":"cat", "found": false]]
-            words += [["word":"hi", "found": false]]
-            words += [["word":"dog", "found": false]]
-            words += [["word":"bye", "found": false]]
-            words += [["word":"hat", "found": false]]
-            words += [["word":"tom", "found": false]]
-            wordCount = 6
+            for word in wordArray! {
+                print(word)
+                let wtext = word["word"]!
+                //print(wtext)
+                words += [["word":wtext, "found": false]]
+            }
+            
+            wordCount = Int32(words.count)
             foundWordCount = 0
             self.words = words
+            
             doSave()
             
             gameReady(self)

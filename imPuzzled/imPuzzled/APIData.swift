@@ -30,7 +30,7 @@ class APIData: NSObject,NSURLSessionDelegate {
     //
     //  start an api request
     //
-    init(request: String, delegate: APIDataDelegate) {
+    init(request: String, delegate: APIDataDelegate, json: NSData?) {
         
         super.init()
         
@@ -42,6 +42,13 @@ class APIData: NSObject,NSURLSessionDelegate {
         let url = NSURL.init(string: self.request!)
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
         let session = NSURLSession(configuration: .defaultSessionConfiguration(), delegate: nil, delegateQueue: NSOperationQueue.mainQueue())
+        
+        if json != nil {
+            urlRequest.HTTPBody = json
+            urlRequest.HTTPMethod = "POST"
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        }
         
         let task = session.dataTaskWithRequest(urlRequest) {
             (data, response, error) -> Void in
