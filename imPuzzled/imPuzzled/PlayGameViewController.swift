@@ -98,7 +98,7 @@ class PlayGameViewController: UIViewController {
                     lastLabel = label
                     
                     //
-                    //  look for first and second pan so we can see 
+                    //  look for first and second characters selected so we can see
                     //  the pan direction
                     //
                     if firstLabel == nil {firstLabel = label}
@@ -110,7 +110,6 @@ class PlayGameViewController: UIViewController {
                     //
                     //  change the selected label color if we dont have 
                     //  two points yet or if the label is ok to select
-                    //  (only good labels have a green color)
                     //
                     if (secondLabel == nil || label.textColor == availColor)
                     && label.textColor != wordColor {
